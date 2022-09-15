@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Regresar" color="warning" mode="ios">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title color="warning">Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label color="warning">Nombre: </ion-label>
+      <ion-input type="text" placeholder="Ingrese su nombre completo" [(ngModel)]="nombre">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="warning">Rut: </ion-label>
+      <ion-input type="text" placeholder="Ingrese su rut" [(ngModel)]="rut">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="warning">Carrera: </ion-label>
+      <ion-input type="text" placeholder="Ingrese su carrera" [(ngModel)]="carrera">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="warning">Sede: </ion-label>
+      <ion-input type="text" placeholder="Ingrese sede de estudio" [(ngModel)]="sede">
+      </ion-input>
+    </ion-item>
+  </ion-list>
+
+  <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+
+    <ion-item>
+      <ion-label color="warning">Email: </ion-label>
+      <ion-input type="email" placeholder="Ingrese su email" 
+                 name="email" [(ngModel)]="usuario.email"
+                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="warning">Password: </ion-label>
+      <ion-input type="password" placeholder="Ingrese una contraseña" 
+                 name="password" [(ngModel)]="usuario.password"
+                 required>
+      </ion-input>
+    </ion-item>
+    <ion-list-header>
+      <ion-label color="warning">Formulario valido: {{formulario.valid}}</ion-label>
+    </ion-list-header>
+
+      <ion-button [disabled]="formulario.invalid"
+              type="submit" expand="block" color="secondary"
+              routerLink="/formulario">
+      <a class="texto">Confirma datos</a>
+      </ion-button>
+  </form>
+</ion-content>

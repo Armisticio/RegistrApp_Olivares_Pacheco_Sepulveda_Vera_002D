@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="warning">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="warning">RegistrApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <br>
+  <div class="nombre">
+    <h1>RegistrApp</h1>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <ion-img src="assets/logo.png" class="img"></ion-img>
+  <br>
+  <br>
+
+  <ion-button (click)="onClick()" expand="block" color="secondary">
+    <a class="texto">Login</a>
+  </ion-button>
+  <br>
+  <br>
+
+  <ion-button (click)="onClick()" expand="block" color="secondary">
+    <a class="texto">Logout</a>
+  </ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let c of componentes" [routerLink]="c.redirecTo" detail="true">
+      <ion-icon [name]="c.icon" slot="start" color="primary"></ion-icon>
+      {{ c.name }}
+    </ion-item>
+  </ion-list>
+</ion-content>
